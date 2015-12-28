@@ -1,0 +1,6 @@
+vendor_name = ModelSim
+source_file = 1, Z:/Documents/DE0_Lesson/Lesson1/Lesson1.v
+source_file = 1, Z:/Documents/DE0_Lesson/Lesson1/db/Lesson1.cbx.xml
+design_name = Lesson1
+instance = comp, \led~output , led~output, Lesson1, 1
+instance = comp, \switch~input , switch~input, Lesson1, 1
