@@ -1,0 +1,7 @@
+vendor_name = ModelSim
+source_file = 1, Z:/Documents/DE0_Lesson/FlipFlop/FlipFlop.v
+source_file = 1, Z:/Documents/DE0_Lesson/FlipFlop/db/FlipFlop.cbx.xml
+design_name = FlipFlop
+instance = comp, \led~output , led~output, FlipFlop, 1
+instance = comp, \switch~input , switch~input, FlipFlop, 1
+instance = comp, \ff~0 , ff~0, FlipFlop, 1

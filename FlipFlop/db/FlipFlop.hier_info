@@ -1,0 +1,5 @@
+|FlipFlop
+switch => ff.CLK
+led << ff.DB_MAX_OUTPUT_PORT_TYPE
+
+
