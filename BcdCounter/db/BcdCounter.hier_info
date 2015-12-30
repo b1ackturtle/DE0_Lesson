@@ -16,6 +16,7 @@ clk => cnt[13].CLK
 clk => cnt[14].CLK
 clk => cnt[15].CLK
 btn => swreg.DATAIN
+rst => resreg.DATAIN
 hex0[0] << WideOr6.DB_MAX_OUTPUT_PORT_TYPE
 hex0[1] << WideOr5.DB_MAX_OUTPUT_PORT_TYPE
 hex0[2] << WideOr4.DB_MAX_OUTPUT_PORT_TYPE

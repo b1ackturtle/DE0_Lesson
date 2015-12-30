@@ -1,11 +1,11 @@
-module BcdCounter(clk, btn, rst, hex0, hex1);
-	input clk, btn, rst;
+module BcdCounter(clk, btn, hex0, hex1);
+	input clk, btn;
 	output [7:0] hex0;
 	output [7:0] hex1;
 	reg [3:0] ff;
 	reg [15:0] cnt;
-	reg swreg, resreg;
-	wire c_clk, sw_out, rst_out;
+	reg swreg;
+	wire c_clk, sw_out;
 	reg [3:0] dcnt1;
 	reg [3:0] dcnt2;
 	wire d_cry;
@@ -17,35 +17,23 @@ module BcdCounter(clk, btn, rst, hex0, hex1);
 	
 	always @(posedge c_clk) begin
 		swreg=btn;
-		resreg=rst;
 	end
 	assign sw_out=swreg;
-	assign rst_out=resreg;
 	
-	always @(negedge sw_out or negedge rst_out) begin
-		if(rst_out==1'b0) begin
+	always @(negedge sw_out) begin
+		if(dcnt1==4'h9)
 			dcnt1 = 0;
-		end
-		else begin
-			if(dcnt1==4'h9)
-				dcnt1 = 0;
-			else
-				dcnt1=dcnt1+1;
-		end
+		else
+			dcnt1=dcnt1+1;
 	end
 	assign d_cry=(dcnt1==4'h9) ? 1'b1 : 1'b0;
 	
-	always @(negedge sw_out or negedge rst_out) begin
-		if(rst_out==1'b0) begin
-			dcnt2 = 0;
-		end
-		else begin
-			if(d_cry==1'b1) begin
-				if(dcnt2==4'h9)
-					dcnt2=0;
-				else
-					dcnt2=dcnt2+1;
-			end
+	always @(negedge sw_out) begin
+		if(d_cry==1'b1) begin
+			if(dcnt2==4'h9)
+				dcnt2=0;
+			else
+				dcnt2=dcnt2+1;
 		end
 	end
 	
