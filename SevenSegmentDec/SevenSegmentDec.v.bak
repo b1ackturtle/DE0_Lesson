@@ -27,5 +27,5 @@ module SevenSegmentDec(sw, led);
 		end
 	endfunction
 	
-	assign led=LedDec(sw);
+	assign led=Led(sw);
 endmodule
